@@ -6,7 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>jianli</title>
         <link rel="stylesheet" href="a.css">
-        <script src="//at.alicdn.com/t/font_798093_2xqozpyeld3.js">
+        <link rel="stylesheet" href="./loadding.css">
+        <script src="https://at.alicdn.com/t/font_798093_2xqozpyeld3.js">
         </script>
         <style type="text/css">
             .icon {
@@ -27,40 +28,6 @@
             .site-welcome.active{
                 display: flex;
             }
-            .loadding{
-    position:relative ;
-    width:500px;
-    height: 500px;
-  }
-  
-  .loadding::before ,.loadding::after{
-    content:'';
-    position: absolute;
-    width:100px;
-    height:100px;
-    left:0;
-    right: 0;
-    top:0;
-    bottom:0 ;
-    margin:auto;
-    background: black;
-    border-radius:50%;
-    animation:1.5s shade ;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-  }
-  .loadding::after{
-    animation-delay:0.75s;
-  }
-  @keyframes shade{
-    from {
-      width:0;height:0; opacity:1;
-    }
-    to{
-      width:200px;height:200px;opacity:0;
-    }
-    
-  }
         </style>
     </head>
     <body>
@@ -237,7 +204,7 @@
                     portfolioBar.className = "bar state-2"   
                  }
                  portfolio3.onclick= function(){
-                    portfolioBar.className = "bar state-3"   
+                    portfolioBar.className = "bar state-3"  
                  }
              </script>
              <div class="works" style="height: 576px;">
@@ -253,7 +220,12 @@
              </div>
          </section>
          <script>
-            siteWelcome.classList.remove('active')
+         setTimeout(
+             function(){
+                siteWelcome.classList.remove('active') 
+             },5000  )
          </script>
+            
+    
     </body>
 </html>
