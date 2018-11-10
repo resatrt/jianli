@@ -1,131 +1,43 @@
-body{
-    background: #efefef;
-    margin: 0;/* 去掉body自带的边框宽度*/
-}
+body{background: #efefef; margin: 0;/* 去掉body自带的边框宽度*/}
 
-a{
-    color: inherit;/* 继承上级属性*/
-    text-decoration: none;/* 去掉下面标线*/
-}
+a{color: inherit;/* 继承上级属性*/text-decoration: none;/* 去掉下面标线*/}
 
-*{
-    margin: 0;
-    padding: 0;
-}
+*{ margin: 0; padding: 0;}
 
-ul,ol{
-    list-style: none;/*去掉样式*/
-}
-h1,h2,h3,h4,h5,h6{
-    font-weight: normal;/*标题不加粗*/
-}
+ul,ol{ list-style: none;/*去掉样式*/}
+h1,h2,h3,h4,h5,h6{ font-weight: normal;/*标题不加粗*/}
 
-hr{
-    height: 0;
-    border: none;
-    border-top: 1px solid #dedede;
-}
+hr{height: 0;border: none;border-top: 1px solid #dedede;}
 
-.clearfix::after{
-    content: '';
-    display: block;
-    clear: both;
-}
+.clearfix::after{content: '';display: block;clear: both;}
 
-.top-Nav-Bar{
-    padding-top: 20px; 
-    padding-bottom: 20px; 
-    padding-left: 0px;
-    padding-right: 0px;
-    /*等价于padding:20px 16px 20px 16px (按照上右下左的顺时针方式) */
-    position: fixed;/*脱离文档流（body计算高度时不计算导航栏的高度）*/
-    width: 100%;
-}
+.top-Nav-Bar{ padding: 20px 0;  position: fixed;/*脱离文档流（body计算高度时不计算导航栏的高度）*/width: 100%;transition: all 1s;}
+.top-Nav-Bar.active{background:#494848;padding: 5px 0 10px 0;}
+.top-Nav-Bar-inner{padding: 0 16px;/*表示上下0px,左右16px*/}
 
-.top-Nav-Bar-inner{
-    padding: 0 16px;/*表示上下0px,左右16px*/
-}
+.top-Nav-Bar nav{padding-top: 8px;padding-bottom: 0px;}
 
-.top-Nav-Bar nav{
-    padding-top: 8px;
-    padding-bottom: 0px;
-}
+.top-Nav-Bar nav>ul{list-style: none; margin: 0;padding: 0;}
 
-.top-Nav-Bar nav>ul{
-    list-style: none; 
-    margin: 0;
-    padding: 0;
-}
+.top-Nav-Bar nav>ul>li{float: left;  /*向左浮动*/margin-left: 17px;margin-right: 17px;}
 
-.top-Nav-Bar nav>ul>li{
-    float: left;  /*向左浮动*/
-    margin-left: 17px;
-    margin-right: 17px;
-}
+.top-Nav-Bar nav>ul>li>a{font-size: 15px; color: #B7B7B7; font-weight: bold; border-top: 3px solid transparent;/*边框隐身*/ border-bottom: 3px solid transparent; padding :5px 0; display: block; /* 将a元素转换为块级元素，此处用于导航条的排列*/}
 
-.top-Nav-Bar nav>ul>li>a{
-    font-size: 12px;
-    color: #B7B7B7; 
-    font-weight: bold;
-    border-top: 3px solid transparent;/*边框隐身*/
-    border-bottom: 3px solid transparent;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    display: block; /* 将a元素转换为块级元素，此处用于导航条的排列*/
-}
+.top-Nav-Bar nav>ul>li>a:hover{ border-bottom: 3px solid #e06567;}
 
-.top-Nav-Bar nav>ul>li>a:hover{
-    border-bottom: 3px solid #e06567;
+.top-Nav-Bar .top-Nav-Bar-inner .logo{ font-size: 24px; font-family: "Arial Blcak"; padding-top: 6px; padding-bottom: 3px;}
 
-}
+.top-Nav-Bar .logo .rs{  margin-right: 4px; color: #E6686A;}
 
-.top-Nav-Bar .top-Nav-Bar-inner .logo{
-    font-size: 24px;
-    font-family: "Arial Blcak";
-    padding-top: 6px;
-    padding-bottom: 3px;
+.top-Nav-Bar .logo .card{ color: #9A9DA2;}
 
-}
+.banner{background-image: url(./rs-cover-1.jpg); height: 515px; background-position:center center;/* X和Y居中*/ background-size: cover; /*盖住背景所有的面积按比例缩放*/}
 
-.top-Nav-Bar .logo .rs{ 
-    margin-right: 4px;
-    color: #E6686A;
+.banner .mask{ height: 515px; background-color: rgba(0,0,0,0.7);}
 
-}
+.userCard{ max-width: 940px; margin-left: auto; margin-right: auto; background-color: #ffffff; box-shadow: 0px 4px 11px 0px rgba(0,0,0,0.48);}
 
-.top-Nav-Bar .logo .card{
-    color: #9A9DA2;
-}
-
-.banner{
-    background-image: url(./rs-cover-1.jpg);
-    height: 515px;
-    background-position:center center;/* X和Y居中*/
-    background-size: cover; /*盖住背景所有的面积按比例缩放*/
-}
-
-.banner .mask{
-    height: 515px;
-    background-color: rgba(0,0,0,0.7);
-}
-
-.userCard{
-    max-width: 940px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #ffffff;
-    box-shadow: 0px 4px 11px 0px rgba(0,0,0,0.48);
-}
-
-.userCard .welcome{
-    background: #e8886a;
-    color: white;
-    display: inline-block;
-    padding: 4px 16px;
-    line-height: 22px;
-    position: relative;/*将自身作为absolute的定位参照物*/
-    margin-bottom: 10px;
-}
+.userCard .welcome{ background: #e8886a; color: white; display: inline-block; padding: 4px 16px; line-height: 22px; position: relative;/*将自身作为absolute的定位参照物*/ margin-bottom: 10px;}
 
 .userCard .welcome .triangle{
     border:10px solid transparent ; 
@@ -137,54 +49,25 @@ hr{
     top: 100%;/*距离hello边框上边缘，因为是以整个hello定位的*/
     left: 5px;
 }
-.userCard .text p{
-    padding-top: 5px;
+.userCard .text p{padding-top: 5px;}
 
-}
+.userCard .picture{float: left;}
 
-.userCard .picture{
-    float: left;
-}
+.userCard .text{ float: left;margin-left: 60px; width: 480px;}
 
-.userCard .text{
-    float: left;
-    margin-left: 60px;
-    width: 480px;
-}
+.userCard .text h1{ margin-top: 18px;}
 
-.userCard .text h1{
-    margin-top: 18px;
-}
+.userCard .text hr{margin: 20px 0;}
 
-.userCard .text hr{
-    margin: 20px 0;
-}
+.userCard .pAt{ padding: 50px;}
 
-.userCard .pAt{
-    padding: 50px;
+.userCard dl dt,.userCard dl dd{float: left;padding: 5px 0;}
 
-}
+.userCard dl dt{width: 30%;font-weight: bold;}
 
-.userCard dl dt,
-.userCard dl dd{
-    float: left;
-    padding: 5px 0;
-}
+.userCard dl dd{ width:70%;  color: #9da0a7;}   
 
-.userCard dl dt{
-    width: 30%;
-    font-weight: bold;
-}
-
-.userCard dl dd{
-    width:70%;  
-    color: #9da0a7;
-}   
-
-.userCard .media{
-    background-color: #E8676B;
-    text-align: center;          
-}
+.userCard .media{ background-color: #E8676B;text-align: center; }
 
 .userCard .media >a{
     display: inline-block;
@@ -195,10 +78,7 @@ hr{
     margin: 16px 15px;
 }
 
-.userCard .media >a:hover{
-    background:#D05C60;
-
-}
+.userCard .media >a:hover{ background:#D05C60;}
 
 .userCard svg{
     width: 30px;
@@ -207,15 +87,9 @@ hr{
     vertical-align: top;
 }
 
-body > main{
-    margin-top: -320px;
-   
-}
+body > main{ margin-top: -320px;}
 
-.downloadresum-wrap {
-    text-align: center;
-
-}
+.downloadresum-wrap {text-align: center;}
 
 .downloadresum-wrap .downloadresum{
     color: #464D59;
@@ -230,9 +104,7 @@ body > main{
     transition: box-shadow 0.3s;
 }
 
-.downloadresum-wrap .downloadresum:hover{
-    box-shadow: 0px 4px 11px 0px rgba(0,0,0,0.63);
-}
+.downloadresum-wrap .downloadresum:hover{ box-shadow: 0px 4px 11px 0px rgba(0,0,0,0.63);}
 
 .self-introduction{
     text-align: center;
@@ -243,15 +115,13 @@ body > main{
     line-height: 1.8;
     font-size: 18px;
 }
-section.portfolio,
-section.skills{
+section.portfolio,section.skills{
     max-width: 940px;
     margin-left: auto;
     margin-right: auto; 
     margin-top: 60px;
 }
-section.portfolio > h2 ,
-section.skills > h2 {
+section.portfolio > h2 ,section.skills > h2 {
     text-align: center;
     color: #3d4451;
     font-size: 34px;
@@ -276,9 +146,7 @@ section.skills > ol > li{
     box-sizing: border-box;/*将这个box作为一个整体，border、padding-right也算在width里*/
    /* padding-right: 40px;*/
 }
-section.skills > ol > li:nth-child(even){ /* 取值为odd表示奇数个*/
-    float: right;             /*当li为第偶数个时，向右浮动*/
-}
+section.skills > ol > li:nth-child(even){ /* 取值为odd表示奇数个*/ float: right;  /*当li为第偶数个时，向右浮动*/}
 
 section.skills .progressBar{
     height: 5px;
@@ -292,18 +160,13 @@ section.skills .progress{
     width: 80%;
     background: #e6686a;
 }
-section.portfolio{
-    text-align: center;
-    margin-bottom: 50px;
-}
+section.portfolio{ text-align: center; margin-bottom: 50px;}
 section.portfolio > nav{
     display: inline-block;
     vertical-align: top;
     margin-top: 25px;
 }
-section.portfolio > nav > ol > li:nth-child(1){
-    margin-left: 0;
-}
+section.portfolio > nav > ol > li:nth-child(1){ margin-left: 0;}
 section.portfolio > nav > ol{
     margin: 0 auto;
     display: inline-block;
@@ -327,24 +190,9 @@ section.portfolio > nav .bar-inner{
     border-radius: 3px;
     transition: all 0.2s;
 }
-section.portfolio > nav .bar.state-1 .bar-inner{
-    margin-left: 0;
-    width: 42px;
-}
-section.portfolio > nav .bar.state-2 .bar-inner{
-    margin-left: 65px;
-    width: 55px;
-}
-section.portfolio > nav .bar.state-3 .bar-inner{
-    margin-left: 141px;
-    width: 96px;
-}
-section.portfolio .works{
-    position: relative;
-}
-section.portfolio .works > .big{
-    position: absolute;
-}
-section.portfolio .works > .small{
-    position: absolute;
-}
+section.portfolio > nav .bar.state-1 .bar-inner{margin-left: 0; width: 42px;}
+section.portfolio > nav .bar.state-2 .bar-inner{ margin-left: 65px; width: 55px;}
+section.portfolio > nav .bar.state-3 .bar-inner{  margin-left: 141px;  width: 96px;}
+section.portfolio .works{position: relative;}
+section.portfolio .works > .big{position: absolute;}
+section.portfolio .works > .small{  position: absolute;}

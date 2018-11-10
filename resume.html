@@ -34,7 +34,7 @@
         <div id="siteWelcome" class="site-welcome active">
             <div class="loadding"></div>
         </div>
-        <div class="top-Nav-Bar ">
+        <div id="topNavBar" class="top-Nav-Bar ">
             <div class="top-Nav-Bar-inner clearfix">
                <a  class="logo" href="#" alt="logo" style="float: left;">
                 <span class="rs">RS</span><span class="card">card</span>
@@ -220,10 +220,18 @@
              </div>
          </section>
          <script>
-         setTimeout(
+            setTimeout(
              function(){
                 siteWelcome.classList.remove('active') 
-             },5000  )
+             },1000  )
+
+window.onscroll = function(){
+    if(window.scrollY > 0){
+        topNavBar.classList.add('active')
+    }else{
+        topNavBar.classList.remove('active')
+    }
+}
          </script>
             
     
