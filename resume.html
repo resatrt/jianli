@@ -39,19 +39,29 @@
                <a  class="logo" href="#" alt="logo" style="float: left;">
                 <span class="rs">RS</span><span class="card">card</span>
                 </a>
-                <nav style="float: right;">
+                <nav class="menu" style="float: right;">
                     <ul class="clearfix">
                         <li>
                             <a href="#">关于</a>
                         </li>
                         <li>
-                            <a href="#">技能</a>
-                        </li>
-                        <li>
+                            <a href ="#">技能</a>
+                            
+                        <li class="menuTigger">
                             <a href="#">作品</a>
+                            <ul class ="submenu">
+                                <li>作品1</li>
+                                <li>作品2</li>
+                                <li>作品3</li>
+                            </ul>
                         </li>
-                        <li>
+                        <li class="menuTigger">
                             <a href="#">博客</a>
+                            <ul class="submenu">
+                                <li>博客1</li>
+                                <li>博客2</li>
+                                <li>博客3</li>
+                            </ul>
                         </li>
                         <li>
                             <a href="#">日历</a>
@@ -223,7 +233,7 @@
             setTimeout(
              function(){
                 siteWelcome.classList.remove('active') 
-             },1000  )
+             },2000  )
 
 window.onscroll = function(){
     if(window.scrollY > 0){
@@ -232,6 +242,32 @@ window.onscroll = function(){
         topNavBar.classList.remove('active')
     }
 }
+
+let aTags = document.querySelectorAll('nav.menu > ul > li' ) //document.getElementsByClassName('menuTigger')
+        // console.log(atags);//控制台打印出的东西不能全信
+   for(let i = 0;i < aTags.length;i++ ){
+      aTags[i].onmouseenter = function(x){  //这个X里的东西才是可靠的
+        //console.log(x.target)//x.target是用户操作的元素
+      x.currentTarget.classList.add('active')//current是我们监听的
+      //let brother = Li .getElementsByTagName('ul')[0]//这个是选择找到的第一个ul
+     /* let brother = Li.nextSibling
+      while(brother.nodeType == Node.TEXT_NODE){  或是brother.tagName !== 'UL'//这一段是用来检测是不是我们要找的那个节点
+        brother = brother.nextSibling          
+      }*/
+     // Li.classList.add('active')
+    }
+      aTags[i].onmouseleave = function(x){
+        x.currentTarget.classList.remove('active')//current是我们监听的
+        //let brother = Li .getElementsByTagName('ul')[0]z这个是选择找到的第一个ul
+       /* let brother = Li.nextSibling
+        while(brother.nodeType === Node.TEXT_NODE){    //这一段是用来检测是不是我们要找的那个节点
+          brother = brother.nextSibling          
+        }*/
+        //Li.classList.remove('active')
+      }
+   }   
+
+    
          </script>
             
     

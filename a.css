@@ -19,27 +19,52 @@ hr{height: 0;border: none;border-top: 1px solid #dedede;}
 
 .top-Nav-Bar nav>ul{list-style: none; margin: 0;padding: 0;}
 
-.top-Nav-Bar nav>ul>li{float: left;  /*向左浮动*/margin-left: 17px;margin-right: 17px;}
+.top-Nav-Bar nav>ul>li{float: left;  /*向左浮动*/margin-left: 17px;margin-right: 17px;position: relative;}
 
 .top-Nav-Bar nav>ul>li>a{font-size: 15px; color: inherit; font-weight: bold; border-top: 3px solid transparent;/*边框隐身*/
      border-bottom: 3px solid transparent; padding :5px 0; display: block; position: relative;/* 将a元素转换为块级元素，此处用于导航条的排列*/}
 
-.top-Nav-Bar nav>ul>li>a:hover::after{ 
+.top-Nav-Bar nav > ul > li.active > a::after{ 
     content: '';
     display: block;
     width: 100%;
     height: 4px;
     position: absolute;
-    top: 100%;
+    top: 87%;/*如果用bottom:0;就有问题*/
     background: #D05C60;
-    animation: zuo 0.5s ease-in-out;
     border-radius: 5%;
-
+    animation: zuo 0.3s ;
 }
 @keyframes zuo{
     from{width: 0;opacity: 0;}
     to{width: 100%;opacity: 1;}
 }
+
+.top-Nav-Bar .submenu{
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+
+    background: white;
+    color: #3d4451;
+}
+.top-Nav-Bar li.active >.submenu {
+    display: block;
+    background: white;
+    box-shadow: 0 0 5px rgba(0,0,0, 0.8) ;
+    animation: menu 0.5s;
+}
+@keyframes menu{
+    from{margin-right: 100%;opacity: 0; }
+    to{margin-right: 0;opacity: 1;}
+}
+.top-Nav-Bar .submenu > li{
+    white-space: nowrap;
+    padding: 3px 5px ;
+    
+}
+
 .top-Nav-Bar .top-Nav-Bar-inner .logo{ font-size: 24px; font-family: "Arial Blcak"; padding-top: 6px; padding-bottom: 3px;}
 
 .top-Nav-Bar .logo .rs{  margin-right: 4px; color: #E6686A;}
