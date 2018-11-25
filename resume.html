@@ -42,13 +42,13 @@
                 <nav class="menu" style="float: right;">
                     <ul class="clearfix">
                         <li>
-                            <a href="#">关于</a>
+                            <a href="#About">关于</a>
                         </li>
                         <li>
-                            <a href ="#">技能</a>
+                            <a href ="#Skills">技能</a>
                             
                         <li class="menuTigger">
-                            <a href="#">作品</a>
+                            <a href="#Production">作品</a>
                             <ul class ="submenu">
                                 <li>作品1</li>
                                 <li>作品2</li>
@@ -56,7 +56,7 @@
                             </ul>
                         </li>
                         <li class="menuTigger">
-                            <a href="#">博客</a>
+                            <a href="#Blog">博客</a>
                             <ul class="submenu">
                                 <li>博客1</li>
                                 <li>博客2</li>
@@ -64,13 +64,13 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#">日历</a>
+                            <a href="#Calendar">日历</a>
                         </li>
                         <li>
-                            <a href="#">联系方式</a>
+                            <a href="#Contact">联系方式</a>
                         </li>
                         <li>
-                            <a href="#">其它</a>
+                            <a href="#Others">其它</a>
                         </li>
                     </ul>
                 </nav>
@@ -80,7 +80,7 @@
            <div class="mask"></div>
         </div>
         <main>
-            <div class="userCard">
+            <div id="About" class="userCard">
                 <div class="pAt clearfix"> 
                     <div class="picture">
                         <img src="./touxiang.jpg" alt="头像">
@@ -147,7 +147,7 @@
                     (UDP 发送的报文长度是应用进程给出的) 
             </p>
         </main>
-        <section class="skills">
+        <section id="Skills" class="skills">
            <h2>技能</h2>
            <ol class="clearfix">
                <li>
@@ -194,7 +194,7 @@
                 </li>
            </ol> 
          </section>
-         <section class="portfolio">
+         <section id="Production" class="portfolio">
              <h2>作品集</h2>
              <nav>
                 <ol class="clearfix">
@@ -243,10 +243,10 @@ window.onscroll = function(){
     }
 }
 
-let aTags = document.querySelectorAll('nav.menu > ul > li' ) //document.getElementsByClassName('menuTigger')
+let LiaTags = document.querySelectorAll('nav.menu > ul > li' ) //document.getElementsByClassName('menuTigger')
         // console.log(atags);//控制台打印出的东西不能全信
-   for(let i = 0;i < aTags.length;i++ ){
-      aTags[i].onmouseenter = function(x){  //这个X里的东西才是可靠的
+   for(let i = 0;i < LiaTags.length;i++ ){
+    LiaTags[i].onmouseenter = function(x){  //这个X里的东西才是可靠的
         //console.log(x.target)//x.target是用户操作的元素
       x.currentTarget.classList.add('active')//current是我们监听的
       //let brother = Li .getElementsByTagName('ul')[0]//这个是选择找到的第一个ul
@@ -256,7 +256,7 @@ let aTags = document.querySelectorAll('nav.menu > ul > li' ) //document.getEleme
       }*/
      // Li.classList.add('active')
     }
-      aTags[i].onmouseleave = function(x){
+    LiaTags[i].onmouseleave = function(x){
         x.currentTarget.classList.remove('active')//current是我们监听的
         //let brother = Li .getElementsByTagName('ul')[0]z这个是选择找到的第一个ul
        /* let brother = Li.nextSibling
@@ -266,10 +266,26 @@ let aTags = document.querySelectorAll('nav.menu > ul > li' ) //document.getEleme
         //Li.classList.remove('active')
       }
    }   
+let aTags = document.querySelectorAll('nav.menu > ul > li > a')
+for(let i = 0;i <aTags.length;i++ ){
+    aTags[i].onclick = function(x){
+    x.preventDefault()
+    let a = x.currentTarget
+    let href = a.getAttribute('href') //这个是写的是什么就是什么 a.href取得的是浏览器处理过的
+    let element = document.querySelector(href) //只获取
+    let distance = element.offsetTop
+    window.scrollTo({
+        top: distance - 80,
+        behavior: "smooth"
 
+    });
     
-         </script>
+     } 
+
+ }
+         
+</script>
             
     
-    </body>
+</body>
 </html>
