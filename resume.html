@@ -229,11 +229,10 @@
                  </div>
              </div>
          </section>
-         <script>
-            setTimeout(
-             function(){
-                siteWelcome.classList.remove('active') 
-             },2000  )
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script> 
+<script>
+   setTimeout(
+     function(){ siteWelcome.classList.remove('active') },2000  )
 
 window.onscroll = function(){
     if(window.scrollY > 0){
@@ -267,19 +266,36 @@ let LiaTags = document.querySelectorAll('nav.menu > ul > li' ) //document.getEle
       }
    }   
 let aTags = document.querySelectorAll('nav.menu > ul > li > a')
+function animate(time) {
+    requestAnimationFrame(animate);//这是tween引入的部分
+    TWEEN.update(time); }
+    requestAnimationFrame(animate);//请求动画帧率，这个API是浏览器自己决定的
+
 for(let i = 0;i <aTags.length;i++ ){
     aTags[i].onclick = function(x){
     x.preventDefault()
     let a = x.currentTarget
-    let href = a.getAttribute('href') //这个是写的是什么就是什么 a.href取得的是浏览器处理过的
+    let href = a.getAttribute('href') //这个是写的是什么就是什么  而a.href取得的是浏览器处理过的
+    //console.log(href)
     let element = document.querySelector(href) //只获取
     let distance = element.offsetTop
-    window.scrollTo({
+    /*window.scrollTo({
         top: distance - 80,
-        behavior: "smooth"
-
-    });
-    
+        behavior: "smooth" });*/ //这一段就可以取代下面的那段缓动，但是下面的缓动具有可操作性
+    let currentTop = window.scrollY //表示当前的Y轴坐标    //这个是tween的另一部分
+    let  targetTop = distance - 80 //目标Y轴坐标
+    let s = targetTop - currentTop   
+    var coords = { y: currentTop}; 
+    var t =Math.abs((s/100)*300)  //时间不能为负数（s的值会为负数） 
+    if(t > 500){t = 500}
+    var tween = new TWEEN.Tween(coords)
+        .to({ y: targetTop }, t) 
+        .easing(TWEEN.Easing.Quadratic.InOut) 
+        .onUpdate(function() { //这个函数他会自动更新coords这个变量的值，每更新一次就会运行一下这个函数
+          window.scrollTo(0,coords.y)
+          //console.log(coords.y)
+        })
+        .start(); 
      } 
 
  }
