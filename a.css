@@ -11,6 +11,18 @@ hr{height: 0;border: none;border-top: 1px solid #dedede;}
 
 .clearfix::after{content: '';display: block;clear: both;}
 
+[data-x].active{
+    outline: 5px solid green;
+}
+[data-x].offset{
+    transform: translateY(100px); 
+}
+[data-x]{
+    transform: translateY(0px);
+    transition: all 0.5s;
+}
+
+
 .top-Nav-Bar{ padding: 20px 0;  position: fixed;color: #B7B7B7;/*脱离文档流（body计算高度时不计算导航栏的高度）*/width: 100%;transition: all 1s;}
 .top-Nav-Bar.active{background:white;padding: 5px 0 10px 0;z-index: 1; box-shadow: 0 0 10px rgba(0,0,0,0.30);color: #3d4451;}
 .top-Nav-Bar-inner{padding: 0 16px;/*表示上下0px,左右16px*/}
@@ -24,7 +36,8 @@ hr{height: 0;border: none;border-top: 1px solid #dedede;}
 .top-Nav-Bar nav>ul>li>a{font-size: 15px; color: inherit; font-weight: bold; border-top: 3px solid transparent;/*边框隐身*/
      border-bottom: 3px solid transparent; padding :5px 0; display: block; position: relative;/* 将a元素转换为块级元素，此处用于导航条的排列*/}
 
-.top-Nav-Bar nav > ul > li.active > a::after{ 
+.top-Nav-Bar nav > ul > li.active > a::after,
+.top-Nav-Bar nav > ul > li.highlight> a::after{ 
     content: '';
     display: block;
     width: 100%;
@@ -193,12 +206,22 @@ section.skills .progressBar{
     background: #fae1e1;
     border-radius: 2%;
     margin: 4px 0 36px;
+    overflow: hidden;
 } 
+section.skills .progressBar > .progress{
+    height: 100%;
+    background: #E6686A;
+}
 
 section.skills .progress{
     height: 100%;
     width: 80%;
     background: #e6686a;
+    transform: translateX(0);
+    transition: all 1s;
+}
+section.skills.offset .progress{
+    transform: translateX(-100%);
 }
 section.portfolio{ text-align: center; margin-bottom: 50px;}
 section.portfolio > nav{
