@@ -84,7 +84,7 @@ hr{height: 0;border: none;border-top: 1px solid #dedede;}
 
 .top-Nav-Bar .logo .card{ color: #9A9DA2;}
 
-.banner{background-image: url(./rs-cover-1.jpg); height: 515px; background-position:center center;/* X和Y居中*/ background-size: cover; /*盖住背景所有的面积按比例缩放*/}
+.banner{background-image: url(./rs-cover.jpg); height: 515px; background-position:center center;/* X和Y居中*/ background-size: cover; /*盖住背景所有的面积按比例缩放*/}
 
 .banner .mask{ height: 515px; background-color: rgba(0,0,0,0.7);}
 
@@ -224,38 +224,15 @@ section.skills.offset .progress{
     transform: translateX(-100%);
 }
 section.portfolio{ text-align: center; margin-bottom: 50px;}
-section.portfolio > nav{
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 25px;
+
+section.portfolio .works{position: relative;
+    margin-top: 30px;
 }
-section.portfolio > nav > ol > li:nth-child(1){ margin-left: 0;}
-section.portfolio > nav > ol{
-    margin: 0 auto;
-    display: inline-block;
-    vertical-align: top;
+section.portfolio .works .swiper-container {
+    width: 750px;
+    height: 450px;
 }
-section.portfolio > nav > ol > li{
-    float: left;
-    margin-left: 40px;  
-    cursor: pointer;
-}
-section.portfolio > nav .bar{
-    height: 5px;
-    margin-top:15px; 
-    margin-bottom: 15px;
-    border-radius: 3px;
+
+section.portfolio .works .swiper-slide {
     background: white;
 }
-section.portfolio > nav .bar-inner{
-    height: 100%;
-    background: #e6686a;
-    border-radius: 3px;
-    transition: all 0.2s;
-}
-section.portfolio > nav .bar.state-1 .bar-inner{margin-left: 0; width: 42px;}
-section.portfolio > nav .bar.state-2 .bar-inner{ margin-left: 65px; width: 55px;}
-section.portfolio > nav .bar.state-3 .bar-inner{  margin-left: 141px;  width: 96px;}
-section.portfolio .works{position: relative;}
-section.portfolio .works > .big{position: absolute;}
-section.portfolio .works > .small{  position: absolute;}
