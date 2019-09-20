@@ -1,59 +1,151 @@
-body{background: #efefef; margin: 0;/* 去掉body自带的边框宽度*/}
+body {
+    background: #efefef;
+    margin: 0;
+    /* 去掉body自带的边框宽度*/
+}
 
-a{color: inherit;/* 继承上级属性*/text-decoration: none;/* 去掉下面标线*/}
+a {
+    color: inherit;
+    /* 继承上级属性*/
+    text-decoration: none;
+    /* 去掉下面标线*/
+}
 
-*{ margin: 0; padding: 0;}
+* {
+    margin: 0;
+    padding: 0;
+}
 
-ul,ol{ list-style: none;/*去掉样式*/}
-h1,h2,h3,h4,h5,h6{ font-weight: normal;/*标题不加粗*/}
+ul,
+ol {
+    list-style: none;
+    /*去掉样式*/
+}
 
-hr{height: 0;border: none;border-top: 1px solid #dedede;}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    /*标题不加粗*/
+}
 
-.clearfix::after{content: '';display: block;clear: both;}
+hr {
+    height: 0;
+    border: none;
+    border-top: 1px solid #dedede;
+}
 
-[data-x].active{
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+[data-x].active {
     outline: 5px solid green;
 }
-[data-x].offset{
-    transform: translateY(100px); 
+
+[data-x].offset {
+    transform: translateY(100px);
 }
-[data-x]{
+
+[data-x] {
     transform: translateY(0px);
     transition: all 0.5s;
 }
 
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
 
-.top-Nav-Bar{ padding: 20px 0;  position: fixed;color: #B7B7B7;/*脱离文档流（body计算高度时不计算导航栏的高度）*/width: 100%;transition: all 1s;}
-.top-Nav-Bar.active{background:white;padding: 5px 0 10px 0;z-index: 1; box-shadow: 0 0 10px rgba(0,0,0,0.30);color: #3d4451;}
-.top-Nav-Bar-inner{padding: 0 16px;/*表示上下0px,左右16px*/}
+.top-Nav-Bar {
+    padding: 20px 0;
+    position: fixed;
+    color: #B7B7B7;
+    /*脱离文档流（body计算高度时不计算导航栏的高度）*/
+    width: 100%;
+    transition: all 1s;
+}
 
-.top-Nav-Bar nav{padding-top: 6px;padding-bottom: 0px;}
+.top-Nav-Bar.active {
+    background: white;
+    padding: 5px 0 10px 0;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);
+    color: #3d4451;
+}
 
-.top-Nav-Bar nav>ul{list-style: none; margin: 0;padding: 0;}
+.top-Nav-Bar-inner {
+    padding: 0 16px;
+    /*表示上下0px,左右16px*/
+}
 
-.top-Nav-Bar nav>ul>li{float: left;  /*向左浮动*/margin-left: 17px;margin-right: 17px;position: relative;}
+.top-Nav-Bar nav {
+    padding-top: 6px;
+    padding-bottom: 0px;
+}
 
-.top-Nav-Bar nav>ul>li>a{font-size: 15px; color: inherit; font-weight: bold; border-top: 3px solid transparent;/*边框隐身*/
-     border-bottom: 3px solid transparent; padding :5px 0; display: block; position: relative;/* 将a元素转换为块级元素，此处用于导航条的排列*/}
+.top-Nav-Bar nav>ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
-.top-Nav-Bar nav > ul > li.active > a::after,
-.top-Nav-Bar nav > ul > li.highlight> a::after{ 
+.top-Nav-Bar nav>ul>li {
+    float: left;
+    /*向左浮动*/
+    margin-left: 17px;
+    margin-right: 17px;
+    position: relative;
+}
+
+.top-Nav-Bar nav>ul>li>a {
+    font-size: 15px;
+    color: inherit;
+    font-weight: bold;
+    border-top: 3px solid transparent;
+    /*边框隐身*/
+    border-bottom: 3px solid transparent;
+    padding: 5px 0;
+    display: block;
+    position: relative;
+    /* 将a元素转换为块级元素，此处用于导航条的排列*/
+}
+
+.top-Nav-Bar nav>ul>li.active>a::after,
+.top-Nav-Bar nav>ul>li.highlight>a::after {
     content: '';
     display: block;
     width: 100%;
     height: 4px;
     position: absolute;
-    top: 87%;/*如果用bottom:0;就有问题*/
+    top: 87%;
+    /*如果用bottom:0;就有问题*/
     background: #D05C60;
     border-radius: 5%;
-    animation: zuo 0.3s ;
-}
-@keyframes zuo{
-    from{width: 0;opacity: 0;}
-    to{width: 100%;opacity: 1;}
+    animation: zuo 0.3s;
 }
 
-.top-Nav-Bar .submenu{
+@keyframes zuo {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+.top-Nav-Bar .submenu {
     display: none;
     position: absolute;
     right: 0;
@@ -62,67 +154,142 @@ hr{height: 0;border: none;border-top: 1px solid #dedede;}
     background: white;
     color: #3d4451;
 }
-.top-Nav-Bar li.active >.submenu {
+
+.top-Nav-Bar li.active>.submenu {
     display: block;
     background: white;
-    box-shadow: 0 0 5px rgba(0,0,0, 0.8) ;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
     animation: menu 0.5s;
 }
-@keyframes menu{
-    from{margin-right: 100%;opacity: 0; }
-    to{margin-right: 0;opacity: 1;}
+
+@keyframes menu {
+    from {
+        margin-right: 100%;
+        opacity: 0;
+    }
+
+    to {
+        margin-right: 0;
+        opacity: 1;
+    }
 }
-.top-Nav-Bar .submenu > li{
+
+.top-Nav-Bar .submenu>li {
     white-space: nowrap;
-    padding: 3px 5px ;
-    
+    padding: 3px 5px;
+
 }
 
-.top-Nav-Bar .top-Nav-Bar-inner .logo{ font-size: 24px; font-family: "Arial Blcak"; padding-top: 6px; padding-bottom: 3px;}
+.top-Nav-Bar .top-Nav-Bar-inner .logo {
+    font-size: 24px;
+    font-family: "Arial Blcak";
+    padding-top: 6px;
+    padding-bottom: 3px;
+}
 
-.top-Nav-Bar .logo .rs{  margin-right: 4px; color: #E6686A;}
+.top-Nav-Bar .logo .rs {
+    margin-right: 4px;
+    color: #E6686A;
+}
 
-.top-Nav-Bar .logo .card{ color: #9A9DA2;}
+.top-Nav-Bar .logo .card {
+    color: #9A9DA2;
+}
 
-.banner{background-image: url(./rs-cover.jpg); height: 515px; background-position:center center;/* X和Y居中*/ background-size: cover; /*盖住背景所有的面积按比例缩放*/}
+.banner {
+    background-image: url(./rs-cover.jpg);
+    height: 515px;
+    background-position: center center;
+    /* X和Y居中*/
+    background-size: cover;
+    /*盖住背景所有的面积按比例缩放*/
+}
 
-.banner .mask{ height: 515px; background-color: rgba(0,0,0,0.7);}
+.banner .mask {
+    height: 515px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
 
-.userCard{ max-width: 940px; margin-left: auto; margin-right: auto; background-color: #ffffff; box-shadow: 0px 4px 11px 0px rgba(0,0,0,0.48);}
+.userCard {
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.48);
+}
 
-.userCard .welcome{ background: #e8886a; color: white; display: inline-block; padding: 4px 16px; line-height: 22px; position: relative;/*将自身作为absolute的定位参照物*/ margin-bottom: 10px;}
+.userCard .welcome {
+    background: #e8886a;
+    color: white;
+    display: inline-block;
+    padding: 4px 16px;
+    line-height: 22px;
+    position: relative;
+    /*将自身作为absolute的定位参照物*/
+    margin-bottom: 10px;
+}
 
-.userCard .welcome .triangle{
-    border:10px solid transparent ; 
-    width:0px;
-    border-left-color:#e8886a;
-    border-top-width:0;
+.userCard .welcome .triangle {
+    border: 10px solid transparent;
+    width: 0px;
+    border-left-color: #e8886a;
+    border-top-width: 0;
     display: block;
-    position: absolute;/*以祖先第一个relative定位*/
-    top: 100%;/*距离hello边框上边缘，因为是以整个hello定位的*/
+    position: absolute;
+    /*以祖先第一个relative定位*/
+    top: 100%;
+    /*距离hello边框上边缘，因为是以整个hello定位的*/
     left: 5px;
 }
-.userCard .text p{padding-top: 5px;}
 
-.userCard .picture{float: left;}
+.userCard .text p {
+    padding-top: 5px;
+}
 
-.userCard .text{ float: left;margin-left: 60px; width: 480px;}
+.userCard .picture {
+    float: left;
+}
 
-.userCard .text h1{ margin-top: 18px;}
+.userCard .text {
+    float: left;
+    margin-left: 60px;
+    width: 480px;
+}
 
-.userCard .text hr{margin: 20px 0;}
+.userCard .text h1 {
+    margin-top: 18px;
+}
 
-.userCard .pAt{ padding: 50px;}
+.userCard .text hr {
+    margin: 20px 0;
+}
 
-.userCard dl dt,.userCard dl dd{float: left;padding: 5px 0;}
+.userCard .pAt {
+    padding: 50px;
+}
 
-.userCard dl dt{width: 30%;font-weight: bold;}
+.userCard dl dt,
+.userCard dl dd {
+    float: left;
+    padding: 5px 0;
+}
 
-.userCard dl dd{ width:70%;  color: #9da0a7;}   
+.userCard dl dt {
+    width: 30%;
+    font-weight: bold;
+}
 
-.userCard .media{ background-color: #E8676B;text-align: center; }
+.userCard dl dd {
+    width: 70%;
+    color: #9da0a7;
+}
 
-.userCard .media >a{
+.userCard .media {
+    background-color: #E8676B;
+    text-align: center;
+}
+
+.userCard .media>a {
     display: inline-block;
     width: 40px;
     line-height: 30px;
@@ -131,23 +298,29 @@ hr{height: 0;border: none;border-top: 1px solid #dedede;}
     margin: 16px 15px;
 }
 
-.userCard .media >a:hover{ background:#D05C60;}
+.userCard .media>a:hover {
+    background: #D05C60;
+}
 
-.userCard svg{
+.userCard svg {
     width: 30px;
     height: 30px;
     fill: green;
     vertical-align: top;
 }
 
-body > main{ margin-top: -320px;}
+body>main {
+    margin-top: -320px;
+}
 
-.downloadresum-wrap {text-align: center;}
+.downloadresum-wrap {
+    text-align: center;
+}
 
-.downloadresum-wrap .downloadresum{
+.downloadresum-wrap .downloadresum {
     color: #464D59;
     padding: 18px 20px;
-    border:1px solid #CDCFD1;
+    border: 1px solid #CDCFD1;
     display: inline-block;
     border-radius: 3%;
     margin: 40px 0;
@@ -157,9 +330,11 @@ body > main{ margin-top: -320px;}
     transition: box-shadow 0.3s;
 }
 
-.downloadresum-wrap .downloadresum:hover{ box-shadow: 0px 4px 11px 0px rgba(0,0,0,0.63);}
+.downloadresum-wrap .downloadresum:hover {
+    box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.63);
+}
 
-.self-introduction{
+.self-introduction {
     text-align: center;
     max-width: 940px;
     margin-left: auto;
@@ -168,66 +343,89 @@ body > main{ margin-top: -320px;}
     line-height: 1.8;
     font-size: 18px;
 }
-section.portfolio,section.skills{
+
+section.portfolio,
+section.skills ,
+section.message{
     max-width: 940px;
     margin-left: auto;
-    margin-right: auto; 
+    margin-right: auto;
     margin-top: 60px;
 }
-section.portfolio > h2 ,section.skills > h2 {
+
+section.portfolio>h2,
+section.skills>h2 ,
+section.message>h2{
     text-align: center;
     color: #3d4451;
     font-size: 34px;
     line-height: 1.2;
     font-weight: 600;
 }
-section.skills > h3{
+
+section.skills>h3 {
     font-size: 14px;
     line-height: 1.1;
     padding-right: 40px;
 }
 
-section.skills > ol{
+section.skills>ol {
     background-color: white;
-    box-shadow: 0px 4px 11px 0px rgba(0,0,0,0.63);
+    box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.63);
     padding: 40px 50px 10px;
     margin-top: 30px;
-} 
-section.skills > ol > li{
+}
+
+section.skills>ol>li {
     float: left;
     width: 47%;
-    box-sizing: border-box;/*将这个box作为一个整体，border、padding-right也算在width里*/
-   /* padding-right: 40px;*/
+    box-sizing: border-box;
+    /*将这个box作为一个整体，border、padding-right也算在width里*/
+    /* padding-right: 40px;*/
 }
-section.skills > ol > li:nth-child(even){ /* 取值为odd表示奇数个*/ float: right;  /*当li为第偶数个时，向右浮动*/}
 
-section.skills .progressBar{
+section.skills>ol>li:nth-child(even) {
+    /* 取值为odd表示奇数个*/
+    float: right;
+    /*当li为第偶数个时，向右浮动*/
+}
+
+section.skills .progressBar {
     height: 5px;
     background: #fae1e1;
     border-radius: 2%;
     margin: 4px 0 36px;
     overflow: hidden;
-} 
-section.skills .progressBar > .progress{
+}
+
+section.skills .progressBar>.progress {
     height: 100%;
     background: #E6686A;
 }
 
-section.skills .progress{
+section.skills .progress {
     height: 100%;
     width: 80%;
     background: #e6686a;
     transform: translateX(0);
     transition: all 1s;
 }
-section.skills.offset .progress{
+
+section.skills.offset .progress {
     transform: translateX(-100%);
 }
-section.portfolio{ text-align: center; margin-bottom: 50px;}
 
-section.portfolio .works{position: relative;
-    margin-top: 30px;
+section.portfolio {
+    text-align: center;
+    margin-bottom: 50px;
 }
+
+section.portfolio .works {
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 150px;
+}
+
 section.portfolio .works .swiper-container {
     width: 750px;
     height: 450px;
@@ -235,4 +433,16 @@ section.portfolio .works .swiper-container {
 
 section.portfolio .works .swiper-slide {
     background: white;
+}
+
+section.message{
+    max-width: 940px;
+    
+}
+
+section.message>ol>li{
+margin: 16px;
+padding: 10px;
+background: #15D176;
+border-radius: 5px;
 }
