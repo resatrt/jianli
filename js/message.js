@@ -1,5 +1,5 @@
 !function () {
-    var view = document.querySelector('section.message')
+    var view = View('section.message')
     var model = {
         //获取数据
         init: function () { //初始化也是操作数据，所以将它移到model里
@@ -19,11 +19,15 @@
         save: function (name, content) {
             var Message = AV.Object.extend('Message');
             var message = new Message();
-            message.set({   //将单个内容变成多个用对象
+            // message.set({   //将单个内容变成多个用对象
+            //     'name': name,  //这个set会将这个对象的两个值并为一个键值对
+            //     'content': content  //即  name:content  
+            // });
+            // console.log(message.save(name, content))
+            return message.save({   //将单个内容变成多个用对象
                 'name': name,
                 'content': content
-            });
-            return message.save(name, content)//返回的是Promise对象
+            })//返回的是Promise对象       
         }
     }
     var controller = {
