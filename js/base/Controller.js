@@ -24,10 +24,10 @@ window.Controller = function (options) {
     }
     console.log('object')
     console.log(object)
-    debugger
+    //debugger
     console.log('options')
     console.log(options)
-    debugger
+    //debugger
     for (let key in options) {
         if (key !== 'init') {
             object[key] = options[key]
